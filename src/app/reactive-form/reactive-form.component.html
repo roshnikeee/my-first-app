@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>Reactive Form</h3>
+    <form [formGroup]="contactForm" (submit)="onSubmit()">
+        <p>
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" formControlName="firstName">
+        </p>
+        <p>
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" formControlName="lastName">
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" formControlName="email">
+        </p>
+        <p>
+            <label for="gender">Gender</label>
+            <input type="radio" value="male" id="gender" name="gender" formControlName="gender">Male
+            <input type="radio" value="female" id="gender" name="gender" formControlName="gender">Female
+        </p>
+        <p>
+            <label for="ismarried">Married</label>
+            <input type="checkbox" id="isMarried" name="ismarried" formControlName="isMarried">
+        </p>
+        <p>
+            <label for="country">Country</label>
+            <select id="country" name="country" formControlName="country">
+                <option value="1">India</option>
+                <option value="2">UK</option>
+                <option value="3">Germany</option>
+                <option value="4">Switzerland</option>
+            </select>
+        </p>
+        <div formGroupName="address">
+            <p>
+                <label for="city">City</label>
+            <input type="text" id="city" name="city" formControlName="city">
+            </p>
+            <p>
+                <label for="state">State</label>
+            <input type="text" id="state" name="state" formControlName="state">
+            </p>
+            <p>
+                <label for="pincode">Pincode</label>
+            <input type="text" id="pincode" name="pincode" formControlName="pincode">
+            </p>
+        </div>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
