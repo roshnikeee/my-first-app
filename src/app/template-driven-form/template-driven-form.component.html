@@ -1,9 +1,17 @@
 <div class="container">
     <h3>Template Driven Form</h3>
-  <form #contactForm="ngForm" (submit)="onSubmit(contactForm)">
+  <form #contactForm="ngForm" (submit)="onSubmit(contactForm)" >
     <p>
       <label for="firstname">First Name</label>
-      <input type="text" name="firstname" id="firstname" [(ngModel)]="contact.firstName"/>
+      <input type="text" #firstname="ngModel" name="firstname" id="firstname" [(ngModel)]="contact.firstName" required minlength="10"/>
+    <span *ngIf="!firstname.valid && (firstname.touched || firstname.dirty)" >
+      <span *ngIf="firstname.errors?.['minlength']">
+        Min Length is 10 chars
+      </span>
+      <span *ngIf="firstname.errors?.['required']">
+        FirstName is required
+      </span>
+    </span>
     </p>
     <p>
       <label for="lastname">Last Name</label>
@@ -44,7 +52,7 @@
       </p>
     </div>
     <p>
-        <button type="submit">Submit</button>
+        <button type="submit" [disabled]="!contactForm.valid">Submit</button>
     </p>
   </form>
 </div>

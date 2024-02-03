@@ -1,4 +1,7 @@
+
+
 import { Component, OnInit } from '@angular/core';
+
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -14,12 +17,12 @@ export class TemplateDrivenFormComponent implements OnInit {
   ];
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
+    console.log(form);
   }
   contact!: Contact;
   ngOnInit(): void {
     this.contact = {
-      firstName: 'Sachin',
+      firstName: '',
       lastName: 'Tendulkar',
       email: 'sachin@gmail.com',
       gender: 'male',
