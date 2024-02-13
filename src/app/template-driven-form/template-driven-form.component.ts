@@ -23,7 +23,7 @@ export class TemplateDrivenFormComponent implements OnInit {
   ngOnInit(): void {
     this.contact = {
       firstName: '',
-      lastName: 'Tendulkar',
+      lastName: '',
       email: 'sachin@gmail.com',
       gender: 'male',
       isMarried: true,

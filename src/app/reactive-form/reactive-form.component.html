@@ -3,24 +3,58 @@
     <form [formGroup]="contactForm" (submit)="onSubmit()">
         <p>
             <label for="firstname">First Name</label>
-            <input type="text" id="firstname" name="firstname" formControlName="firstName">
+            <input type="text" id="firstname" name="firstname" formControlName="firstName" >
+            <span style="color: red;" *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)">
+                <span style="color: red;" *ngIf="firstname?.errors?.['required']">
+                    Firstname is required
+                </span>
+                <span style="color: red;" *ngIf="firstname?.errors?.['minlength']">
+                    Minimum length is 10 characters
+                </span>
+            </span>
         </p>
         <p>
             <label for="lastname">Last Name</label>
             <input type="text" id="lastname" name="lastname" formControlName="lastName">
+            <span style="color: red;" *ngIf="!lastname?.valid && (lastname?.touched || lastname?.dirty)">
+                <span style="color: red;" *ngIf="lastname?.errors?.['required']">
+                    Lastname is required
+                </span>
+                <span style="color: red;" *ngIf="lastname?.errors?.['maxlength']">
+                    Maximum length is 15 characters
+                </span>
+                <span style="color: red;" *ngIf="lastname?.errors?.['pattern']">
+                    Only characters are allowed
+                </span>
+            </span>
         </p>
         <p>
             <label for="email">Email</label>
             <input type="text" id="email" name="email" formControlName="email">
+            <span style="color: red;" *ngIf="!email?.valid && (email?.touched || email?.dirty)">
+                <span style="color: red;" *ngIf="email?.errors?.['required']">
+                    Email is required
+                </span>
+            </span>
         </p>
         <p>
             <label for="gender">Gender</label>
             <input type="radio" value="male" id="gender" name="gender" formControlName="gender">Male
             <input type="radio" value="female" id="gender" name="gender" formControlName="gender">Female
+            <span style="color: red;" *ngIf="!gender?.valid && (gender?.touched || gender?.dirty)">
+                <span style="color: red;" *ngIf="gender?.errors?.['required']">
+                    Gender is required
+                </span>
+            </span>
         </p>
         <p>
             <label for="ismarried">Married</label>
             <input type="checkbox" id="isMarried" name="ismarried" formControlName="isMarried">
+            <span style="color: red;" *ngIf="!maritalStatus?.valid && (maritalStatus?.touched || maritalStatus?.dirty)">
+                <span style="color: red;" *ngIf="maritalStatus?.errors?.['required']">
+                    Marital Status is required
+                </span>
+            </span>
         </p>
         <p>
             <label for="country">Country</label>
@@ -30,23 +64,43 @@
                 <option value="3">Germany</option>
                 <option value="4">Switzerland</option>
             </select>
+            <span style="color: red;" *ngIf="!country?.valid && (country?.touched || country?.dirty)">
+                <span style="color: red;" *ngIf="country?.errors?.['required']">
+                    Country is required
+                </span>
+            </span>
         </p>
         <div formGroupName="address">
             <p>
                 <label for="city">City</label>
             <input type="text" id="city" name="city" formControlName="city">
+            <span style="color: red;" *ngIf="!city?.valid && (city?.touched || city?.dirty)">
+                <span style="color: red;" *ngIf="city?.errors?.['required']">
+                    City is required
+                </span>
+            </span>
             </p>
             <p>
-                <label for="state">State</label>
-            <input type="text" id="state" name="state" formControlName="state">
+                <label for="street">Street</label>
+            <input type="text" id="street" name="street" formControlName="street">
+            <span style="color: red;" *ngIf="!street?.valid && (street?.touched || street?.dirty)">
+                <span style="color: red;" *ngIf="street?.errors?.['required']">
+                    Street is required
+                </span>
+            </span>
             </p>
             <p>
                 <label for="pincode">Pincode</label>
             <input type="text" id="pincode" name="pincode" formControlName="pincode">
+            <span style="color: red;" *ngIf="!pincode?.valid && (pincode?.touched || pincode?.dirty)">
+                <span style="color: red;" *ngIf="pincode?.errors?.['required']">
+                    Pincode is required
+                </span>
+            </span>
             </p>
         </div>
         <p>
-            <button type="submit">Submit</button>
+            <button type="submit" >Submit</button>
         </p>
     </form>
 </div>
